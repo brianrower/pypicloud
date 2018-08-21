@@ -7,6 +7,7 @@ from pyramid.renderers import JSON, render
 from pyramid.settings import asbool
 from pyramid_beaker import session_factory_from_settings
 from six.moves.urllib.parse import urlencode  # pylint: disable=F0401,E0611
+from configparser import ConfigParser
 
 from .route import Root
 from .util import BetterScrapingLocator
