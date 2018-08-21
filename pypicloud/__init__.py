@@ -172,7 +172,7 @@ def generate_wsgi_app(app, environ):
     # Read in the settings file and pass that to main
     config = ConfigParser()
     config.read('server.ini')
-    settings = dict(config.items('app:main', vars=vars))
+    settings = dict(config.items('app:main'))
 
     wsgi_app = main(None, **settings)
     return wsgi_app(app, environ)
