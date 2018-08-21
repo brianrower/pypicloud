@@ -165,3 +165,11 @@ def main(config, **settings):
     config.include('pypicloud')
     config.scan('pypicloud.views')
     return config.make_wsgi_app()
+
+
+def generate_wsgi_app(app, environ):
+    config = Configurator()
+    config.include('pypicloud')
+    config.scan('pypicloud.views')
+    wsgi_app = config.make_wsgi_app()
+    return wsgi_app(app, environ)
