@@ -168,8 +168,10 @@ def main(config, **settings):
 
 
 def generate_wsgi_app(app, environ):
-    config = Configurator()
-    config.include('pypicloud')
-    config.scan('pypicloud.views')
-    wsgi_app = config.make_wsgi_app()
+    # Read in the settings file and pass that to main
+    config = ConfigParser()
+    config.read(config_uri)
+    settings = dict(config.items('app:main', vars=vars))
+
+    wsgi_app = main(None, **settings)
     return wsgi_app(app, environ)
