@@ -15,7 +15,8 @@ CHANGES = re.sub(r":ref:`(.*?) <.*>`", r"\1", CHANGES)
 REQUIREMENTS = [
     "boto3>=1.7.0,<1.8",  # Hack until https://github.com/spulec/moto/issues/1793 is fixed
     # beaker needs this
-    "cryptography",
+    'cryptography',
+    'configparser',
     # We're doing enough subclassing and monkey patching to where we really do
     # need to lock this in to a specific version.
     "distlib==0.2.5",

@@ -7,6 +7,7 @@ from pyramid.renderers import JSON, render
 from pyramid.settings import asbool
 from pyramid_beaker import session_factory_from_settings
 from six.moves.urllib.parse import urlencode  # pylint: disable=F0401,E0611
+from configparser import ConfigParser
 
 from .route import Root
 from .util import BetterScrapingLocator
@@ -177,3 +178,13 @@ def main(config, **settings):
     config.include("pypicloud")
     config.scan("pypicloud.views")
     return config.make_wsgi_app()
+
+
+def generate_wsgi_app(app, environ):
+    # Read in the settings file and pass that to main
+    config = ConfigParser()
+    config.read('server.ini')
+    settings = dict(config.items('app:main'))
+
+    wsgi_app = main(None, **settings)
+    return wsgi_app(app, environ)
