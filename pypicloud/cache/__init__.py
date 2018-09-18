@@ -3,9 +3,6 @@ from functools import partial
 from pyramid.path import DottedNameResolver
 
 from .base import ICache
-from .redis_cache import RedisCache
-from .sql import SQLCache
-
 
 def get_cache_impl(settings):
     """ Get the cache class from settings """
