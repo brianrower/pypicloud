@@ -185,6 +185,7 @@ def main(config, **settings):
 wsgi_app = None
 
 def generate_wsgi_app(app, environ):
+    global wsgi_app
     if wsgi_app is None:
         print("generate_wsgi_app")
         # Read in the settings file and pass that to main
