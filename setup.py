@@ -27,7 +27,6 @@ REQUIREMENTS = [
     "pyramid_duh>=0.1.1",
     "pyramid_jinja2",
     "pyramid_rpc",
-    "pyramid_tm",
     "six",
     "flywheel >= 0.2.0"
 ]
