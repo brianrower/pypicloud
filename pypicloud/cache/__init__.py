@@ -21,6 +21,7 @@ def get_cache_impl(settings):
 
 
 def includeme(config):
+    print("cache.includeme")
     """ Get and configure the cache db wrapper """
     settings = config.get_settings()
     cache_impl = get_cache_impl(settings)

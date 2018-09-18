@@ -10,6 +10,7 @@ from .sql import SQLAccessBackend
 
 
 def includeme(config):
+    print("access.includeme")
     """ Configure the app """
     settings = config.get_settings()
 
