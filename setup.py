@@ -30,7 +30,7 @@ REQUIREMENTS = [
     "pyramid_tm",
     "six",
     "transaction",
-    "zope.sqlalchemy",
+    "flywheel >= 0.2.0"
 ]
 
 EXTRAS = {
