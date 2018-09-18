@@ -52,7 +52,6 @@ def _add_postfork_hook(config, hook):
 
 
 def includeme(config):
-    print("main.includeme")
     """ Set up and configure the pypicloud app """
     config.set_root_factory(Root)
     settings = config.get_settings()
@@ -187,7 +186,6 @@ wsgi_app = None
 def generate_wsgi_app(app, environ):
     global wsgi_app
     if wsgi_app is None:
-        print("generate_wsgi_app")
         # Read in the settings file and pass that to main
         config = ConfigParser()
         config.read(os.environ.get('PYPI_CLOUD_CONFIG_FILE', 'server.ini'))
