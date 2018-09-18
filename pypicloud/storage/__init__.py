@@ -16,6 +16,7 @@ except ImportError:
 
 
 def get_storage_impl(settings):
+    print("storage.get_storage_impl")
     """ Get and configure the storage backend wrapper """
     resolver = DottedNameResolver(__name__)
     storage = settings.get("pypi.storage", "file")

@@ -8,6 +8,7 @@ from .base import IAccessBackend, IMutableAccessBackend, get_pwd_context, DEFAUL
 
 
 def includeme(config):
+    print("access.includeme")
     """ Configure the app """
     settings = config.get_settings()
 
