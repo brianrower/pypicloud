@@ -182,12 +182,16 @@ def main(config, **settings):
     return config.make_wsgi_app()
 
 
-def generate_wsgi_app(app, environ):
-    print("generate_wsgi_app")
-    # Read in the settings file and pass that to main
-    config = ConfigParser()
-    config.read(os.environ.get('PYPI_CLOUD_CONFIG_FILE', 'server.ini'))
-    settings = dict(config.items('app:main'))
+wsgi_app = None
 
-    wsgi_app = main(None, **settings)
+def generate_wsgi_app(app, environ):
+    if wsgi_app is None:
+        print("generate_wsgi_app")
+        # Read in the settings file and pass that to main
+        config = ConfigParser()
+        config.read(os.environ.get('PYPI_CLOUD_CONFIG_FILE', 'server.ini'))
+        settings = dict(config.items('app:main'))
+
+        wsgi_app = main(None, **settings)
+
     return wsgi_app(app, environ)
