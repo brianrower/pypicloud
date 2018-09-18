@@ -29,7 +29,6 @@ REQUIREMENTS = [
     "pyramid_rpc",
     "pyramid_tm",
     "six",
-    "transaction",
     "flywheel >= 0.2.0"
 ]
 

@@ -5,8 +5,6 @@ from pyramid.path import DottedNameResolver
 from .aws_secrets_manager import AWSSecretsManagerAccessBackend
 from .config import ConfigAccessBackend
 from .base import IAccessBackend, IMutableAccessBackend, get_pwd_context, DEFAULT_ROUNDS
-from .remote import RemoteAccessBackend
-from .sql import SQLAccessBackend
 
 
 def includeme(config):
@@ -19,8 +17,6 @@ def includeme(config):
         dotted_name = ConfigAccessBackend
     elif dotted_name == "remote":
         dotted_name = RemoteAccessBackend
-    elif dotted_name == "sql":
-        dotted_name = SQLAccessBackend
     elif dotted_name == "ldap":
         dotted_name = "pypicloud.access.ldap_.LDAPAccessBackend"
     elif dotted_name == "aws_secrets_manager":
